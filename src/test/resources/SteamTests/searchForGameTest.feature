@@ -6,4 +6,5 @@ Feature: Navigation on site
     Then The 'Action' page is opened
     When I select the cheapest game from:
     |Carousel|Special Offers|
+    And the customer age is verified
     Then The page of the game is opened

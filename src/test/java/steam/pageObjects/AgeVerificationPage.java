@@ -22,10 +22,10 @@ public class AgeVerificationPage extends SteamBasePage {
 
     public void confirmAge(String day, String month, String year)
     {
-        logger.info("steam.pageObjects.AgeVerificationPage.confirmAge");
         cmBoxDay.selectItemByValue(day);
         cmBoxMonth.selectItemByValue(month);
         cmBoxYear.selectItemByValue(year);
         btnViewPage.click();
+        logger.info("steam.pageObjects.AgeVerificationPage.confirmAge");
     }
 }

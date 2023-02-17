@@ -9,6 +9,7 @@ import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import steam.model.SpecialOfferGamePane;
 import steam.pageObjects.ActionGamesPage;
+import steam.pageObjects.AgeVerificationPage;
 import steam.pageObjects.GamePage;
 import steam.pageObjects.StoreHomePage;
 import steps.Hooks;
@@ -88,10 +89,25 @@ public class NavigatrionOnSiteSteps {
         logger.info(String.format("cheapest.game.found : '%s'", game.getGameName()));
         page.selectGameFromOffered(game);
         browser.waitPageToLoad();
-        logger.info(String.format("cheapest.game.page.selected : '%s'", browser.getBrowserUri()));
     }
+
+    @When("the customer age is verified")
+    public void the_customer_age_is_verified() {
+        if (browser.getBrowserUri().contains("agecheck"))
+        {
+            var ageCheckPage = new AgeVerificationPage();
+            ageCheckPage.confirmAge("1", "January", "1984");
+        }
+        else {
+            Logger.getInstance().info("steam.pageObjects.AgeVerificationPage.not.shown");
+        }
+        browser.waitPageToLoad();
+    }
+
     @Then("The page of the game is opened")
     public void the_page_of_the_game_is_opened() {
+
         new GamePage(game.getGameName());
+        logger.info(String.format("cheapest.game.page.selected : '%s'", browser.getBrowserUri()));
     }
 }
