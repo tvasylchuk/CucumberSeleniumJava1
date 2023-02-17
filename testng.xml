@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Default Suite" verbose="10" >
+    <test name="EndToEndCucumberTest"   >
+        <classes>
+            <class name="Runners.TestRunner"></class>
+        </classes>
+    </test>
+</suite>
