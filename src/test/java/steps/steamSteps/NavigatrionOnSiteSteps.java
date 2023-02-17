@@ -12,7 +12,6 @@ import steam.pageObjects.ActionGamesPage;
 import steam.pageObjects.AgeVerificationPage;
 import steam.pageObjects.GamePage;
 import steam.pageObjects.StoreHomePage;
-import steps.Hooks;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,7 @@ public class NavigatrionOnSiteSteps {
     }
 
     @When("I switch the site language to {string}")
-    public void i_switch_the_site_language_to(String string) throws InterruptedException {
+    public void i_switch_the_site_language_to(String string) {
         StoreHomePage mainPage = new StoreHomePage();
         logger.info("page 'https://store.steampowered.com/' is ready");
         mainPage.mainMenuPC.switchLanguage(string);

@@ -11,6 +11,6 @@ public class StoreHomePage extends SteamStorePage {
     public StoreHomePage(){
         super();
         Assert.assertTrue(browser.getBrowserUri().contains("store.steampowered.com/"));
-        logger.info("steam.pageObjects.StoreHomePage.ctor()");
+        logger.info("steam.pageObjects.StoreHomePage.ctr()");
     }
 }
