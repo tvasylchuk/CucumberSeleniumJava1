@@ -11,13 +11,13 @@ public class AcceptCookiesPage extends BasePage {
 
     public void acceptAllCoockies()
     {
-        logger.error("steam.pageObjects.AcceptCookiesPage.acceptAllCoockies()");
+        logger.info("steam.pageObjects.AcceptCookiesPage.acceptAllCoockies()");
         btnAcceptAll.click();
     }
 
     public void rejectAllCoockies()
     {
-        logger.error("steam.pageObjects.AcceptCookiesPage.rejectAllCoockies()");
+        logger.info("steam.pageObjects.AcceptCookiesPage.rejectAllCoockies()");
         btnRejectAll.click();
     }
 
