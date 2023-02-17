@@ -1,4 +1,4 @@
-package steam.steps;
+package steps.steamSteps;
 
 import framework.Logger;
 import framework.driver.Browser;
@@ -11,25 +11,31 @@ import steam.model.SpecialOfferGamePane;
 import steam.pageObjects.ActionGamesPage;
 import steam.pageObjects.GamePage;
 import steam.pageObjects.StoreHomePage;
+import steps.Hooks;
 
 import java.util.ArrayList;
 
 public class NavigatrionOnSiteSteps {
 
     private static final Browser browser = Browser.getInstance();
+    private static final Logger logger = framework.Logger.getInstance();
     private static SpecialOfferGamePane game = null;
 
     @Given("Open start page on Steam")
     public void open_start_page_on_steam() {
         browser.navigate("https://store.steampowered.com/");
         browser.waitPageToLoad();
+        logger.info("browser.wait.to.load.page : 'https://store.steampowered.com/'");
     }
 
     @When("I switch the site language to {string}")
     public void i_switch_the_site_language_to(String string) throws InterruptedException {
         StoreHomePage mainPage = new StoreHomePage();
+        logger.info("page 'https://store.steampowered.com/' is ready");
         mainPage.mainMenuPC.switchLanguage(string);
+        logger.info(String.format("StoreHomePage.mainPage.switchLanguage: %s", string));
         browser.waitPageToLoad();
+        logger.info("browser.wait.to.load.page : 'https://store.steampowered.com/'");
     }
     @Then("the {string} language is removed from the list:")
     public void the_language_is_removed_from_the_list(String string) {
@@ -51,8 +57,11 @@ public class NavigatrionOnSiteSteps {
     @When("I select the {string} and {string}")
     public void i_select_the_and(String string, String string2) {
         StoreHomePage mainPage = new StoreHomePage();
+        logger.info("page 'https://store.steampowered.com/' is ready");
         mainPage.navigationPC.navigateMenu(string, string2);
+        logger.info(String.format("StoreHomePage.mainPage.navigationPage.Menu: %s1 -> %s2", string, string2));
         browser.waitPageToLoad();
+        logger.info(String.format("browser.wait.to.load.page : 'store.steampowered.com/category/%s/'", string2.toLowerCase()));
     }
     @Then("The {string} page is opened")
     public void the_page_is_opened(String string) {
@@ -64,18 +73,22 @@ public class NavigatrionOnSiteSteps {
         args.add(dataTable.asMap().get("Carousel"));
 
         ActionGamesPage page = new ActionGamesPage(args);
+        logger.info(String.format("page '%s' is ready", browser.getBrowserUri()));
         try
         {
             page.coockiesPage.acceptAllCoockies();
+            logger.info("AcceptCookiesPage.all.coockies.accepted");
         }
         catch(TimeoutException e)
         {
-            Logger.getInstance().warn("AcceptCookiesPage.not.found");
+            logger.warn("AcceptCookiesPage.not.found");
         }
 
         game = page.findCheapestActionGame();
+        logger.info(String.format("cheapest.game.found : '%s'", game.getGameName()));
         page.selectGameFromOffered(game);
         browser.waitPageToLoad();
+        logger.info(String.format("cheapest.game.page.selected : '%s'", browser.getBrowserUri()));
     }
     @Then("The page of the game is opened")
     public void the_page_of_the_game_is_opened() {

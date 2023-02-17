@@ -1,21 +1,24 @@
-package steps.onlinerSteps;
+package steps;
 
+import framework.Logger;
 import framework.driver.Browser;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 public class Hooks {
-    protected static Browser browser;
-    protected static final Logger logger = LogManager.getLogger(Hooks.class);
-    protected static Scenario scenario;
+    private static Browser browser;
+    public static Scenario scenario;
 
-    public void setUp()
+    @Before
+    public void setUp(Scenario scenario)
     {
+        Hooks.scenario = scenario;
         browser = Browser.getInstance();
         browser.maximise();
     }
 
+    @After
     public void tearDown()
     {
         browser.exit();

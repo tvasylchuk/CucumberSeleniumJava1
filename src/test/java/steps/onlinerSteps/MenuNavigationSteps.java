@@ -1,4 +1,4 @@
-package onliner.steps;
+package steps.onlinerSteps;
 
 import framework.driver.Browser;
 import io.cucumber.java.en.Then;
