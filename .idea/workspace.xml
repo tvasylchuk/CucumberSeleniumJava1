@@ -5,73 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ded0813-0552-4e11-9a01-7e325d0e63ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Runners/SteamTestRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Runners/TestRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/PropertiesResourceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/driver/Browser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/driver/BrowserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/driver/DriverFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/BaseElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/ComboBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/FilterCheckBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/MainMenuItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/ScrollBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBoxGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/model/Languages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/pageObjects/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/utils/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/utils/GamePaneComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/model/TVCriterias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/MainMenuPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/ProductsPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/SearchResultPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/CatalogPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/TVPageObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/GamePane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/Languages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/SpecialOfferGamePane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/AcceptCookiesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/CarouselPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/MainMenuPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/SearchPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/SpecialOfferCarouselPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/StoreNavigationPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/AboutSteamPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/ActionGamesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/AgeVerificationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/GamePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SearchPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SteamBasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SteamStorePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/StoreHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/Hooks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/onlinerSteps/MenuNavigationSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/onlinerSteps/TVSearchSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/steps/steamSteps/NavigatrionOnSiteSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Browser.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Driver.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/EN.testdata.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/PL.testdata.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/RU.testdata.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/OnlinerTests/navigationTest.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/OnlinerTests/onlinerSearchTVTest.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/SteamTests/searchForGameTest.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/cucumber.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
