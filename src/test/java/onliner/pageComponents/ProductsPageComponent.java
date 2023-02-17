@@ -1,11 +1,13 @@
 package onliner.pageComponents;
 
+import framework.Logger;
 import framework.driver.Browser;
 import framework.elements.Label;
 import org.openqa.selenium.By;
 
 public class ProductsPageComponent {
     private static Browser browser;
+    private static Logger logger = Logger.getInstance();
     private Label lbDepartment(String department) {
         return new Label(By.xpath("//span[@class='catalog-navigation-classifier__item-title-wrapper' and text()='"+department+"']/.."));
     }
@@ -19,9 +21,19 @@ public class ProductsPageComponent {
     public ProductsPageComponent()
     {
         browser = Browser.getInstance();
+        logger.info("onliner.pageComponents.ProductsPageComponent.ctr.ready");
     }
 
-    public void selectDepartment(String department) { lbDepartment(department).click(); }
-    public void selectProductCategory(String category) { lbCategory(category).click(); }
-    public void selectProduct(String product) { lbProduct(product).click();}
+    public void selectDepartment(String department) {
+        lbDepartment(department).click();
+        logger.info("onliner.pageComponents.ProductsPageComponent.selectDepartment.elementClick.done");
+    }
+    public void selectProductCategory(String category) {
+        lbCategory(category).click();
+        logger.info("onliner.pageComponents.ProductsPageComponent.selectProductCategory.elementClick.done");
+    }
+    public void selectProduct(String product) {
+        lbProduct(product).click();
+        logger.info("onliner.pageComponents.ProductsPageComponent.selectProduct.elementClick.done");
+    }
 }
