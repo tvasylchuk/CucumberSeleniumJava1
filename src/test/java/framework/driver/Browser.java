@@ -53,19 +53,22 @@ public class Browser {
         pageLoadTimeout = Duration.ofSeconds(Long.parseLong(props.getPropertyValueByKey("PageLoadTimeout")));
         fileDownloadTimeout = Integer.parseInt(props.getPropertyValueByKey("FileDownloadTimeOut"));
 
-        if (!Strings.isNotNullAndNotEmpty(props.getPropertyValueByKey("BrowserType"))) {
-            currentBrowser =  BrowserType.valueOf(DEFAULT_BROWSER);
-        }
-        else {
-            currentBrowser = BrowserType.valueOf(props.getPropertyValueByKey("BrowserType"));
-        }
-
         if (!Strings.isNotNullAndNotEmpty(props.getPropertyValueByKey("Locale"))) {
             loc =  Languages.valueOf(DEFAULT_LOC);
         }
         else {
             loc = Languages.valueOf(props.getPropertyValueByKey("Locale"));
         }
+    }
+
+    public static BrowserType initCurrentBrowser(BrowserType type)
+    {
+        if (currentBrowser == null)
+        {
+            currentBrowser = type;
+        }
+
+        return currentBrowser;
     }
 
     public static Browser getInstance()
