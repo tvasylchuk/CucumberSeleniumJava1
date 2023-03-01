@@ -12,6 +12,7 @@ import steam.pageObjects.ActionGamesPage;
 import steam.pageObjects.AgeVerificationPage;
 import steam.pageObjects.GamePage;
 import steam.pageObjects.StoreHomePage;
+import steps.Hooks;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class NavigatrionOnSiteSteps {
         browser.navigate("https://store.steampowered.com/");
         browser.waitPageToLoad();
         logger.info("browser.wait.to.load.page : 'https://store.steampowered.com/'");
+        Hooks.scenario.log("browser.wait.to.load.page : 'https://store.steampowered.com/'");
     }
 
     @When("I switch the site language to {string}")
@@ -34,6 +36,7 @@ public class NavigatrionOnSiteSteps {
         logger.info("page 'https://store.steampowered.com/' is ready");
         mainPage.mainMenuPC.switchLanguage(string);
         logger.info(String.format("StoreHomePage.mainPage.switchLanguage: %s", string));
+        Hooks.scenario.log(String.format("StoreHomePage.mainPage.switchLanguage: %s", string));
         browser.waitPageToLoad();
         logger.info("browser.wait.to.load.page : 'https://store.steampowered.com/'");
     }
@@ -41,6 +44,8 @@ public class NavigatrionOnSiteSteps {
     public void the_language_is_removed_from_the_list(String string) {
         StoreHomePage mainPage = new StoreHomePage();
         Assert.assertFalse(mainPage.mainMenuPC.isLanguageExists(string));
+        Hooks.scenario.attach(Hooks.getScreenshot(), "image/png", "Language");
+        Hooks.scenario.log(String.format("StoreHomePage.mainPage.list.language.%s.not.present", string));
     }
 
     @When("I change the site language:")
@@ -60,11 +65,14 @@ public class NavigatrionOnSiteSteps {
         logger.info("page 'https://store.steampowered.com/' is ready");
         mainPage.navigationPC.navigateMenu(string, string2);
         logger.info(String.format("StoreHomePage.mainPage.navigationPage.Menu: %s1 -> %s2", string, string2));
+        Hooks.scenario.log(String.format("StoreHomePage.mainPage.navigationPage.Menu: %s1 -> %s2", string, string2));
         browser.waitPageToLoad();
         logger.info(String.format("browser.wait.to.load.page : 'store.steampowered.com/category/%s/'", string2.toLowerCase()));
+        Hooks.scenario.log(String.format("browser.wait.to.load.page : 'store.steampowered.com/category/%s/'", string2.toLowerCase()));
     }
     @Then("The {string} page is opened")
     public void the_page_is_opened(String string) {
+        Hooks.scenario.attach(Hooks.getScreenshot(), "image/png", String.format("store.steampowered.com/category/%s/", string.toLowerCase()));
         Assert.assertTrue(browser.getBrowserUri().contains(String.format("store.steampowered.com/category/%s/", string.toLowerCase())));
     }
     @When("I select the cheapest game from:")
@@ -74,18 +82,22 @@ public class NavigatrionOnSiteSteps {
 
         ActionGamesPage page = new ActionGamesPage(args);
         logger.info(String.format("page '%s' is ready", browser.getBrowserUri()));
+        Hooks.scenario.log(String.format("page '%s' is ready", browser.getBrowserUri()));
         try
         {
             page.coockiesPage.acceptAllCoockies();
             logger.info("AcceptCookiesPage.all.coockies.accepted");
+            Hooks.scenario.log("AcceptCookiesPage.all.coockies.accepted");
         }
         catch(TimeoutException e)
         {
             logger.warn("AcceptCookiesPage.not.found");
+            Hooks.scenario.log("AcceptCookiesPage.not.found");
         }
 
         game = page.findCheapestActionGame();
         logger.info(String.format("cheapest.game.found : '%s'", game.getGameName()));
+        Hooks.scenario.log(String.format("cheapest.game.found : '%s'", game.getGameName()));
         page.selectGameFromOffered(game);
         browser.waitPageToLoad();
     }
@@ -96,6 +108,7 @@ public class NavigatrionOnSiteSteps {
         {
             var ageCheckPage = new AgeVerificationPage();
             ageCheckPage.confirmAge("1", "January", "1984");
+            Hooks.scenario.log("steam.pageObjects.AgeVerificationPage.verified");
         }
         else {
             Logger.getInstance().info("steam.pageObjects.AgeVerificationPage.not.shown");
@@ -107,6 +120,7 @@ public class NavigatrionOnSiteSteps {
     public void the_page_of_the_game_is_opened() {
 
         new GamePage(game.getGameName());
+        Hooks.scenario.attach(Hooks.getScreenshot(), "image/png", String.format("cheapest.game.page.selected : '%s'", browser.getBrowserUri()));
         logger.info(String.format("cheapest.game.page.selected : '%s'", browser.getBrowserUri()));
     }
 }
