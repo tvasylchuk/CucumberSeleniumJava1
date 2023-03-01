@@ -27,7 +27,7 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        if (!scenario.isFailed()) {
+        if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) browser.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
@@ -38,7 +38,7 @@ public class Hooks {
         if (name == null || name.isEmpty())
             return BrowserType.Chrome;
 
-        return BrowserType.valueOf(System.getProperty(name));
+        return BrowserType.valueOf(name);
     }
 
     public static byte[] getScreenshot()
